@@ -12,7 +12,7 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Kur
+    public partial class Tbl_Kur
     {
         public int KurId { get; set; }
         public string KurAd { get; set; }
@@ -21,6 +21,6 @@ namespace OtelOtomasyonu.Entity
         public Nullable<System.DateTime> Tarih { get; set; }
         public Nullable<int> Durum { get; set; }
     
-        public virtual Durum Durum1 { get; set; }
+        public virtual Tbl_Durum Tbl_Durum { get; set; }
     }
 }

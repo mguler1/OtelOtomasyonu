@@ -12,20 +12,18 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class UrunGrup
+    public partial class Tbl_Ulke
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UrunGrup()
+        public Tbl_Ulke()
         {
-            this.Urun = new HashSet<Urun>();
+            this.Tbl_Misafir = new HashSet<Tbl_Misafir>();
         }
     
-        public int UrunGrupId { get; set; }
-        public string UrunGrupAd { get; set; }
-        public Nullable<int> Durum { get; set; }
+        public int UlkeId { get; set; }
+        public string UlkeAd { get; set; }
     
-        public virtual Durum Durum1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual ICollection<Tbl_Misafir> Tbl_Misafir { get; set; }
     }
 }

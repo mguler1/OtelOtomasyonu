@@ -12,48 +12,48 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Durum
+    public partial class Tbl_Durum
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Durum()
+        public Tbl_Durum()
         {
-            this.Birim = new HashSet<Birim>();
-            this.Departman = new HashSet<Departman>();
-            this.Gorev = new HashSet<Gorev>();
-            this.Kasa = new HashSet<Kasa>();
-            this.Kur = new HashSet<Kur>();
-            this.Misafir = new HashSet<Misafir>();
-            this.Oda = new HashSet<Oda>();
-            this.Personel = new HashSet<Personel>();
-            this.Telefon = new HashSet<Telefon>();
-            this.Urun = new HashSet<Urun>();
-            this.UrunGrup = new HashSet<UrunGrup>();
+            this.Tbl_Birim = new HashSet<Tbl_Birim>();
+            this.Tbl_Departman = new HashSet<Tbl_Departman>();
+            this.Tbl_Gorev = new HashSet<Tbl_Gorev>();
+            this.Tbl_Kasa = new HashSet<Tbl_Kasa>();
+            this.Tbl_Kur = new HashSet<Tbl_Kur>();
+            this.Tbl_Misafir = new HashSet<Tbl_Misafir>();
+            this.Tbl_Oda = new HashSet<Tbl_Oda>();
+            this.Tbl_Personel = new HashSet<Tbl_Personel>();
+            this.Tbl_Telefon = new HashSet<Tbl_Telefon>();
+            this.Tbl_Urun = new HashSet<Tbl_Urun>();
+            this.Tbl_UrunGrup = new HashSet<Tbl_UrunGrup>();
         }
     
         public int DurumId { get; set; }
         public string DurumAd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Birim> Birim { get; set; }
+        public virtual ICollection<Tbl_Birim> Tbl_Birim { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Departman> Departman { get; set; }
+        public virtual ICollection<Tbl_Departman> Tbl_Departman { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gorev> Gorev { get; set; }
+        public virtual ICollection<Tbl_Gorev> Tbl_Gorev { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kasa> Kasa { get; set; }
+        public virtual ICollection<Tbl_Kasa> Tbl_Kasa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kur> Kur { get; set; }
+        public virtual ICollection<Tbl_Kur> Tbl_Kur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Misafir> Misafir { get; set; }
+        public virtual ICollection<Tbl_Misafir> Tbl_Misafir { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oda> Oda { get; set; }
+        public virtual ICollection<Tbl_Oda> Tbl_Oda { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personel> Personel { get; set; }
+        public virtual ICollection<Tbl_Personel> Tbl_Personel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Telefon> Telefon { get; set; }
+        public virtual ICollection<Tbl_Telefon> Tbl_Telefon { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual ICollection<Tbl_Urun> Tbl_Urun { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UrunGrup> UrunGrup { get; set; }
+        public virtual ICollection<Tbl_UrunGrup> Tbl_UrunGrup { get; set; }
     }
 }

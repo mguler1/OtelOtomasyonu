@@ -12,22 +12,20 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Gorev
+    public partial class Tbl_UrunGrup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Gorev()
+        public Tbl_UrunGrup()
         {
-            this.Personel = new HashSet<Personel>();
+            this.Tbl_Urun = new HashSet<Tbl_Urun>();
         }
     
-        public int GorevId { get; set; }
-        public string GorevAd { get; set; }
-        public Nullable<int> Departman { get; set; }
+        public int UrunGrupId { get; set; }
+        public string UrunGrupAd { get; set; }
         public Nullable<int> Durum { get; set; }
     
-        public virtual Departman Departman1 { get; set; }
-        public virtual Durum Durum1 { get; set; }
+        public virtual Tbl_Durum Tbl_Durum { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personel> Personel { get; set; }
+        public virtual ICollection<Tbl_Urun> Tbl_Urun { get; set; }
     }
 }

@@ -22,9 +22,9 @@ namespace OtelOtomasyonu.Formlar.Tanımlar
         DbOtelEntities db = new DbOtelEntities();
         private void FrmDepartman_Load(object sender, EventArgs e)
         {
-            db.Departman.Load();
-            bindingSource1.DataSource = db.Departman.Local;
-            repositoryItemLookUpEditDurum.DataSource = (from x in db.Durum select new { x.DurumId, x.DurumAd }).ToList();
+            db.Tbl_Departman.Load();
+            bindingSource1.DataSource = db.Tbl_Departman.Local;
+            repositoryItemLookUpEditDurum.DataSource = (from x in db.Tbl_Durum select new { x.DurumId, x.DurumAd }).ToList();
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1af609c3884e41d4afeb0fd1020cda19" Name="Diagram1">
-        <EntityTypeShape EntityType="DbOtelModel.Birim" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Departman" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Durum" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Gorev" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Kasa" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Kur" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Misafir" Width="1.5" PointX="8" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Oda" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Personel" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+      <Diagram DiagramId="ce08d2b854f7487ba59e745c94324c42" Name="Diagram1">
         <EntityTypeShape EntityType="DbOtelModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Telefon" Width="1.5" PointX="3" PointY="25.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Ulke" Width="1.5" PointX="5.75" PointY="20.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.Urun" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbOtelModel.UrunGrup" Width="1.5" PointX="3" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Birim" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Departman" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Durum" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Gorev" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Kasa" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Kur" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Misafir" Width="1.5" PointX="8" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Oda" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Telefon" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Ulke" Width="1.5" PointX="5.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Urun" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_UrunGrup" Width="1.5" PointX="3" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Tbl_Personel" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
         <AssociationConnector Association="DbOtelModel.FK_Birim_Durum" ManuallyRouted="false" />
         <AssociationConnector Association="DbOtelModel.FK_Urun_Birim" ManuallyRouted="false" />
         <AssociationConnector Association="DbOtelModel.FK_Departman_Durum" ManuallyRouted="false" />

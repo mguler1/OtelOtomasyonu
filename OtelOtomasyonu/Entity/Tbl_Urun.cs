@@ -12,13 +12,19 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Telefon
+    public partial class Tbl_Urun
     {
-        public int TelefonId { get; set; }
-        public string Aciklama { get; set; }
-        public string Telefon1 { get; set; }
+        public int UrunId { get; set; }
+        public string UrunAd { get; set; }
+        public Nullable<int> UrunGrup { get; set; }
+        public Nullable<int> Birim { get; set; }
+        public Nullable<decimal> Fiyat { get; set; }
+        public Nullable<decimal> Toplam { get; set; }
+        public Nullable<byte> Kdv { get; set; }
         public Nullable<int> Durum { get; set; }
     
-        public virtual Durum Durum1 { get; set; }
+        public virtual Tbl_Birim Tbl_Birim { get; set; }
+        public virtual Tbl_Durum Tbl_Durum { get; set; }
+        public virtual Tbl_UrunGrup Tbl_UrunGrup { get; set; }
     }
 }

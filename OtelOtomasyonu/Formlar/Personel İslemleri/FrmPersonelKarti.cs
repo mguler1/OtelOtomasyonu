@@ -24,8 +24,8 @@ namespace OtelOtomasyonu.Formlar.Personel_İslemleri
         {
             try
             {
-                Repository<Personel> repo = new Repository<Personel>();
-                Personel t = new Personel();
+                Repository<Tbl_Personel> repo = new Repository<Tbl_Personel>();
+                Tbl_Personel t = new Tbl_Personel();
                 t.AdSoyad = txtAdSoyad.Text;
                 t.Tc = txtTc.Text;
                 t.Adres = txtAdres.Text;
@@ -54,8 +54,8 @@ namespace OtelOtomasyonu.Formlar.Personel_İslemleri
         DbOtelEntities db = new DbOtelEntities();
         private void FrmPersonelKarti_Load(object sender, EventArgs e)
         {
-            lookUpEditDepartman.Properties.DataSource = (from x in db.Departman select new { x.DepartmanId, x.DepartmanAd }).ToList();
-            lookUpEditGorev.Properties.DataSource = (from x in db.Gorev select new { x.GorevId, x.GorevAd }).ToList();
+            lookUpEditDepartman.Properties.DataSource = (from x in db.Tbl_Departman select new { x.DepartmanId, x.DepartmanAd }).ToList();
+            lookUpEditGorev.Properties.DataSource = (from x in db.Tbl_Gorev select new { x.GorevId, x.GorevAd }).ToList();
         }
     }
 }

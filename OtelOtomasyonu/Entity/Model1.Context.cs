@@ -25,19 +25,19 @@ namespace OtelOtomasyonu.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Birim> Birim { get; set; }
-        public virtual DbSet<Departman> Departman { get; set; }
-        public virtual DbSet<Durum> Durum { get; set; }
-        public virtual DbSet<Gorev> Gorev { get; set; }
-        public virtual DbSet<Kasa> Kasa { get; set; }
-        public virtual DbSet<Kur> Kur { get; set; }
-        public virtual DbSet<Misafir> Misafir { get; set; }
-        public virtual DbSet<Oda> Oda { get; set; }
-        public virtual DbSet<Personel> Personel { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Telefon> Telefon { get; set; }
-        public virtual DbSet<Ulke> Ulke { get; set; }
-        public virtual DbSet<Urun> Urun { get; set; }
-        public virtual DbSet<UrunGrup> UrunGrup { get; set; }
+        public virtual DbSet<Tbl_Birim> Tbl_Birim { get; set; }
+        public virtual DbSet<Tbl_Departman> Tbl_Departman { get; set; }
+        public virtual DbSet<Tbl_Durum> Tbl_Durum { get; set; }
+        public virtual DbSet<Tbl_Gorev> Tbl_Gorev { get; set; }
+        public virtual DbSet<Tbl_Kasa> Tbl_Kasa { get; set; }
+        public virtual DbSet<Tbl_Kur> Tbl_Kur { get; set; }
+        public virtual DbSet<Tbl_Misafir> Tbl_Misafir { get; set; }
+        public virtual DbSet<Tbl_Oda> Tbl_Oda { get; set; }
+        public virtual DbSet<Tbl_Telefon> Tbl_Telefon { get; set; }
+        public virtual DbSet<Tbl_Ulke> Tbl_Ulke { get; set; }
+        public virtual DbSet<Tbl_Urun> Tbl_Urun { get; set; }
+        public virtual DbSet<Tbl_UrunGrup> Tbl_UrunGrup { get; set; }
+        public virtual DbSet<Tbl_Personel> Tbl_Personel { get; set; }
     }
 }

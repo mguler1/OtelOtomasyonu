@@ -23,8 +23,8 @@ namespace OtelOtomasyonu.Formlar.Tanımlar
 
         private void FrmDurum_Load(object sender, EventArgs e)
         {
-            db.Durum.Load();
-            bindingSource1.DataSource = db.Durum.Local;
+            db.Tbl_Durum.Load();
+            bindingSource1.DataSource = db.Tbl_Durum.Local;
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

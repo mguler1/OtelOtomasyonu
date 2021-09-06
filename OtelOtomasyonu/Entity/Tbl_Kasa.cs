@@ -12,21 +12,15 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Misafir
+    public partial class Tbl_Kasa
     {
-        public int MisafirId { get; set; }
-        public string AdSoyad { get; set; }
-        public string Tc { get; set; }
-        public string Mail { get; set; }
-        public string Telefon { get; set; }
-        public string Adres { get; set; }
-        public Nullable<int> Ulke { get; set; }
-        public string Aciklama { get; set; }
-        public string KimlikFoto1 { get; set; }
-        public string KimlikFoto2 { get; set; }
+        public int KasaID { get; set; }
+        public string KasaAd { get; set; }
+        public Nullable<decimal> Bakiye { get; set; }
+        public Nullable<decimal> Giris { get; set; }
+        public Nullable<decimal> Cikis { get; set; }
         public Nullable<int> Durum { get; set; }
     
-        public virtual Durum Durum1 { get; set; }
-        public virtual Ulke Ulke1 { get; set; }
+        public virtual Tbl_Durum Tbl_Durum { get; set; }
     }
 }

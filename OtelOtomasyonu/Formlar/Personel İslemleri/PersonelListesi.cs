@@ -20,10 +20,10 @@ namespace OtelOtomasyonu.Formlar.Personel_İslemleri
         DbOtelEntities db = new DbOtelEntities();
         private void PersonelListesi_Load(object sender, EventArgs e)
         {
-            gridControl1.DataSource  = (from x in db.Personel
+            gridControl1.DataSource  = (from x in db.Tbl_Personel
                          select new
                          {
-                             x.Tc,x.AdSoyad,x.Telefon,x.Mail,x.Departman,x.Gorev
+                             x.Tc,x.AdSoyad,x.Telefon,x.Mail,x.Tbl_Departman.DepartmanAd,x.Tbl_Gorev.GorevAd
                          }).ToList();
            
         }

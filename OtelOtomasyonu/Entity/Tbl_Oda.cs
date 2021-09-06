@@ -12,19 +12,16 @@ namespace OtelOtomasyonu.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Urun
+    public partial class Tbl_Oda
     {
-        public int UrunId { get; set; }
-        public string UrunAd { get; set; }
-        public Nullable<int> UrunGrup { get; set; }
-        public Nullable<int> Birim { get; set; }
-        public Nullable<decimal> Fiyat { get; set; }
-        public Nullable<decimal> Toplam { get; set; }
-        public Nullable<byte> Kdv { get; set; }
+        public int OdaId { get; set; }
+        public string OdaNo { get; set; }
+        public string Kat { get; set; }
+        public string Kapasite { get; set; }
+        public string Aciklama { get; set; }
+        public string Telefon { get; set; }
         public Nullable<int> Durum { get; set; }
     
-        public virtual Birim Birim1 { get; set; }
-        public virtual Durum Durum1 { get; set; }
-        public virtual UrunGrup UrunGrup1 { get; set; }
+        public virtual Tbl_Durum Tbl_Durum { get; set; }
     }
 }

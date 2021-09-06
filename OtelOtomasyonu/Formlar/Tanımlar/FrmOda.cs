@@ -23,9 +23,9 @@ namespace OtelOtomasyonu.Formlar.Tanımlar
         private void FrmOda_Load(object sender, EventArgs e)
         {
 
-            db.Oda.Load();
-            bindingSource1.DataSource = db.Oda.Local;
-            repositoryItemLookUpEditDurum.DataSource = (from x in db.Durum select new { x.DurumId, x.DurumAd }).ToList();
+            db.Tbl_Oda.Load();
+            bindingSource1.DataSource = db.Tbl_Oda.Local;
+            repositoryItemLookUpEditDurum.DataSource = (from x in db.Tbl_Durum select new { x.DurumId, x.DurumAd }).ToList();
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
