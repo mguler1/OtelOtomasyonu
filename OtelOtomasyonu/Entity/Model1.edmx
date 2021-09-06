@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbOtelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Birim">
+          <Key>
+            <PropertyRef Name="BirimId" />
+          </Key>
+          <Property Name="BirimId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BirimAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Departman">
+          <Key>
+            <PropertyRef Name="DepartmanId" />
+          </Key>
+          <Property Name="DepartmanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmanAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="char" MaxLength="5" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Durum">
+          <Key>
+            <PropertyRef Name="DurumId" />
+          </Key>
+          <Property Name="DurumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DurumAd" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Gorev">
+          <Key>
+            <PropertyRef Name="GorevId" />
+          </Key>
+          <Property Name="GorevId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GorevAd" Type="nvarchar" MaxLength="30" />
+          <Property Name="Departman" Type="int" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Kasa">
+          <Key>
+            <PropertyRef Name="KasaID" />
+          </Key>
+          <Property Name="KasaID" Type="int" Nullable="false" />
+          <Property Name="KasaAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bakiye" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Giris" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Cikis" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Kur">
+          <Key>
+            <PropertyRef Name="KurId" />
+          </Key>
+          <Property Name="KurId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KurAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sembol" Type="nvarchar" MaxLength="1" />
+          <Property Name="Deger" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tarih" Type="date" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Misafir">
+          <Key>
+            <PropertyRef Name="MisafirId" />
+          </Key>
+          <Property Name="MisafirId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tc" Type="char" MaxLength="11" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="25" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ulke" Type="int" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="KimlikFoto1" Type="nvarchar" MaxLength="200" />
+          <Property Name="KimlikFoto2" Type="nvarchar" MaxLength="200" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Oda">
+          <Key>
+            <PropertyRef Name="OdaId" />
+          </Key>
+          <Property Name="OdaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OdaNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Kat" Type="varchar" MaxLength="2" />
+          <Property Name="Kapasite" Type="char" MaxLength="1" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="200" />
+          <Property Name="Telefon" Type="char" MaxLength="5" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbOtel.dbo.Personel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="PersonelId" />
+          </Key>
+          <Property Name="PersonelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tc" Type="nvarchar" MaxLength="11" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="11" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="IseGirisTarihi" Type="date" />
+          <Property Name="IstenCikisTarihi" Type="date" />
+          <Property Name="Departman" Type="int" />
+          <Property Name="Gorev" Type="int" />
+          <Property Name="KimlikOn" Type="nvarchar" MaxLength="200" />
+          <Property Name="KimlikArka" Type="nvarchar" MaxLength="200" />
+          <Property Name="Yetki" Type="char" MaxLength="1" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="20" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Telefon">
+          <Key>
+            <PropertyRef Name="TelefonId" />
+          </Key>
+          <Property Name="TelefonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="200" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="Ulke">
+          <Key>
+            <PropertyRef Name="UlkeId" />
+          </Key>
+          <Property Name="UlkeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UlkeAd" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunGrup" Type="int" />
+          <Property Name="Birim" Type="int" />
+          <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Toplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Kdv" Type="tinyint" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="UrunGrup">
+          <Key>
+            <PropertyRef Name="UrunGrupId" />
+          </Key>
+          <Property Name="UrunGrupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunGrupAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <Association Name="FK_Birim_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Birim" Type="Self.Birim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Birim">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departman_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Departman" Type="Self.Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Departman">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorev_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="0..1" />
+          <End Role="Gorev" Type="Self.Gorev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="Gorev">
+              <PropertyRef Name="Departman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorev_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Gorev" Type="Self.Gorev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Gorev">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kasa_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Kasa" Type="Self.Kasa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Kasa">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kur_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Kur" Type="Self.Kur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Kur">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Misafir_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Misafir" Type="Self.Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Misafir">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Misafir_Ulke">
+          <End Role="Ulke" Type="Self.Ulke" Multiplicity="0..1" />
+          <End Role="Misafir" Type="Self.Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ulke">
+              <PropertyRef Name="UlkeId" />
+            </Principal>
+            <Dependent Role="Misafir">
+              <PropertyRef Name="Ulke" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="Departman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Gorev">
+          <End Role="Gorev" Type="Self.Gorev" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gorev">
+              <PropertyRef Name="GorevId" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="Gorev" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefon_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Telefon" Type="Self.Telefon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Telefon">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Birim">
+          <End Role="Birim" Type="Self.Birim" Multiplicity="0..1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim">
+              <PropertyRef Name="BirimId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="Birim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_UrunGrup">
+          <End Role="UrunGrup" Type="Self.UrunGrup" Multiplicity="0..1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UrunGrup">
+              <PropertyRef Name="UrunGrupId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="UrunGrup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunGrup_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="UrunGrup" Type="Self.UrunGrup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="UrunGrup">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbOtelModelStoreContainer">
+          <EntitySet Name="Birim" EntityType="Self.Birim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departman" EntityType="Self.Departman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Durum" EntityType="Self.Durum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gorev" EntityType="Self.Gorev" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kasa" EntityType="Self.Kasa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kur" EntityType="Self.Kur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Misafir" EntityType="Self.Misafir" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oda" EntityType="Self.Oda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefon" EntityType="Self.Telefon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ulke" EntityType="Self.Ulke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrunGrup" EntityType="Self.UrunGrup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Personel].[PersonelId] AS [PersonelId], 
+    [Personel].[AdSoyad] AS [AdSoyad], 
+    [Personel].[Tc] AS [Tc], 
+    [Personel].[Adres] AS [Adres], 
+    [Personel].[Telefon] AS [Telefon], 
+    [Personel].[Mail] AS [Mail], 
+    [Personel].[IseGirisTarihi] AS [IseGirisTarihi], 
+    [Personel].[IstenCikisTarihi] AS [IstenCikisTarihi], 
+    [Personel].[Departman] AS [Departman], 
+    [Personel].[Gorev] AS [Gorev], 
+    [Personel].[KimlikOn] AS [KimlikOn], 
+    [Personel].[KimlikArka] AS [KimlikArka], 
+    [Personel].[Yetki] AS [Yetki], 
+    [Personel].[Sifre] AS [Sifre], 
+    [Personel].[Aciklama] AS [Aciklama], 
+    [Personel].[Durum] AS [Durum]
+    FROM [dbo].[Personel] AS [Personel]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Birim_Durum" Association="Self.FK_Birim_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Birim" EntitySet="Birim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departman_Durum" Association="Self.FK_Departman_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Departman" EntitySet="Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorev_Departman" Association="Self.FK_Gorev_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="Gorev" EntitySet="Gorev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorev_Durum" Association="Self.FK_Gorev_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Gorev" EntitySet="Gorev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kasa_Durum" Association="Self.FK_Kasa_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Kasa" EntitySet="Kasa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kur_Durum" Association="Self.FK_Kur_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Kur" EntitySet="Kur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Misafir_Durum" Association="Self.FK_Misafir_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Misafir" EntitySet="Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Misafir_Ulke" Association="Self.FK_Misafir_Ulke">
+            <End Role="Ulke" EntitySet="Ulke" />
+            <End Role="Misafir" EntitySet="Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Durum" Association="Self.FK_Oda_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Departman" Association="Self.FK_Personel_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Durum" Association="Self.FK_Personel_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Gorev" Association="Self.FK_Personel_Gorev">
+            <End Role="Gorev" EntitySet="Gorev" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefon_Durum" Association="Self.FK_Telefon_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Telefon" EntitySet="Telefon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Birim" Association="Self.FK_Urun_Birim">
+            <End Role="Birim" EntitySet="Birim" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Durum" Association="Self.FK_Urun_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_UrunGrup" Association="Self.FK_Urun_UrunGrup">
+            <End Role="UrunGrup" EntitySet="UrunGrup" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunGrup_Durum" Association="Self.FK_UrunGrup_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="UrunGrup" EntitySet="UrunGrup" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbOtelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Birim">
+          <Key>
+            <PropertyRef Name="BirimId" />
+          </Key>
+          <Property Name="BirimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BirimAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Birim_Durum" FromRole="Birim" ToRole="Durum" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Birim" FromRole="Birim" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Departman">
+          <Key>
+            <PropertyRef Name="DepartmanId" />
+          </Key>
+          <Property Name="DepartmanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmanAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Departman_Durum" FromRole="Departman" ToRole="Durum" />
+          <NavigationProperty Name="Gorev" Relationship="Self.FK_Gorev_Departman" FromRole="Departman" ToRole="Gorev" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_Personel_Departman" FromRole="Departman" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="Durum">
+          <Key>
+            <PropertyRef Name="DurumId" />
+          </Key>
+          <Property Name="DurumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DurumAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Birim" Relationship="Self.FK_Birim_Durum" FromRole="Durum" ToRole="Birim" />
+          <NavigationProperty Name="Departman" Relationship="Self.FK_Departman_Durum" FromRole="Durum" ToRole="Departman" />
+          <NavigationProperty Name="Gorev" Relationship="Self.FK_Gorev_Durum" FromRole="Durum" ToRole="Gorev" />
+          <NavigationProperty Name="Kasa" Relationship="Self.FK_Kasa_Durum" FromRole="Durum" ToRole="Kasa" />
+          <NavigationProperty Name="Kur" Relationship="Self.FK_Kur_Durum" FromRole="Durum" ToRole="Kur" />
+          <NavigationProperty Name="Misafir" Relationship="Self.FK_Misafir_Durum" FromRole="Durum" ToRole="Misafir" />
+          <NavigationProperty Name="Oda" Relationship="Self.FK_Oda_Durum" FromRole="Durum" ToRole="Oda" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_Personel_Durum" FromRole="Durum" ToRole="Personel" />
+          <NavigationProperty Name="Telefon" Relationship="Self.FK_Telefon_Durum" FromRole="Durum" ToRole="Telefon" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Durum" FromRole="Durum" ToRole="Urun" />
+          <NavigationProperty Name="UrunGrup" Relationship="Self.FK_UrunGrup_Durum" FromRole="Durum" ToRole="UrunGrup" />
+        </EntityType>
+        <EntityType Name="Gorev">
+          <Key>
+            <PropertyRef Name="GorevId" />
+          </Key>
+          <Property Name="GorevId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GorevAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Departman" Type="Int32" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Departman1" Relationship="Self.FK_Gorev_Departman" FromRole="Gorev" ToRole="Departman" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Gorev_Durum" FromRole="Gorev" ToRole="Durum" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_Personel_Gorev" FromRole="Gorev" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="Kasa">
+          <Key>
+            <PropertyRef Name="KasaID" />
+          </Key>
+          <Property Name="KasaID" Type="Int32" Nullable="false" />
+          <Property Name="KasaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bakiye" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Giris" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Cikis" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Kasa_Durum" FromRole="Kasa" ToRole="Durum" />
+        </EntityType>
+        <EntityType Name="Kur">
+          <Key>
+            <PropertyRef Name="KurId" />
+          </Key>
+          <Property Name="KurId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KurAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sembol" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Deger" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Kur_Durum" FromRole="Kur" ToRole="Durum" />
+        </EntityType>
+        <EntityType Name="Misafir">
+          <Key>
+            <PropertyRef Name="MisafirId" />
+          </Key>
+          <Property Name="MisafirId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ulke" Type="Int32" />
+          <Property Name="Aciklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="KimlikFoto1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="KimlikFoto2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Misafir_Durum" FromRole="Misafir" ToRole="Durum" />
+          <NavigationProperty Name="Ulke1" Relationship="Self.FK_Misafir_Ulke" FromRole="Misafir" ToRole="Ulke" />
+        </EntityType>
+        <EntityType Name="Oda">
+          <Key>
+            <PropertyRef Name="OdaId" />
+          </Key>
+          <Property Name="OdaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OdaNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Kat" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Kapasite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Oda_Durum" FromRole="Oda" ToRole="Durum" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="PersonelId" />
+          </Key>
+          <Property Name="PersonelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IseGirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="IstenCikisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Departman" Type="Int32" />
+          <Property Name="Gorev" Type="Int32" />
+          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Departman1" Relationship="Self.FK_Personel_Departman" FromRole="Personel" ToRole="Departman" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Personel_Durum" FromRole="Personel" ToRole="Durum" />
+          <NavigationProperty Name="Gorev1" Relationship="Self.FK_Personel_Gorev" FromRole="Personel" ToRole="Gorev" />
+          <Property Name="KimlikOn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="KimlikArka" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Yetki" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Telefon">
+          <Key>
+            <PropertyRef Name="TelefonId" />
+          </Key>
+          <Property Name="TelefonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Telefon_Durum" FromRole="Telefon" ToRole="Durum" />
+        </EntityType>
+        <EntityType Name="Ulke">
+          <Key>
+            <PropertyRef Name="UlkeId" />
+          </Key>
+          <Property Name="UlkeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UlkeAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Misafir" Relationship="Self.FK_Misafir_Ulke" FromRole="Ulke" ToRole="Misafir" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunGrup" Type="Int32" />
+          <Property Name="Birim" Type="Int32" />
+          <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Toplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Kdv" Type="Byte" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Birim1" Relationship="Self.FK_Urun_Birim" FromRole="Urun" ToRole="Birim" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_Urun_Durum" FromRole="Urun" ToRole="Durum" />
+          <NavigationProperty Name="UrunGrup1" Relationship="Self.FK_Urun_UrunGrup" FromRole="Urun" ToRole="UrunGrup" />
+        </EntityType>
+        <EntityType Name="UrunGrup">
+          <Key>
+            <PropertyRef Name="UrunGrupId" />
+          </Key>
+          <Property Name="UrunGrupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunGrupAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Durum1" Relationship="Self.FK_UrunGrup_Durum" FromRole="UrunGrup" ToRole="Durum" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_UrunGrup" FromRole="UrunGrup" ToRole="Urun" />
+        </EntityType>
+        <Association Name="FK_Birim_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Birim" Type="Self.Birim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Birim">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Birim">
+          <End Role="Birim" Type="Self.Birim" Multiplicity="0..1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim">
+              <PropertyRef Name="BirimId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="Birim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departman_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Departman" Type="Self.Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Departman">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorev_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="0..1" />
+          <End Role="Gorev" Type="Self.Gorev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="Gorev">
+              <PropertyRef Name="Departman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="Departman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorev_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Gorev" Type="Self.Gorev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Gorev">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kasa_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Kasa" Type="Self.Kasa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Kasa">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kur_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Kur" Type="Self.Kur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Kur">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Misafir_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Misafir" Type="Self.Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Misafir">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oda_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Oda" Type="Self.Oda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Oda">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefon_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Telefon" Type="Self.Telefon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Telefon">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunGrup_Durum">
+          <End Role="Durum" Type="Self.Durum" Multiplicity="0..1" />
+          <End Role="UrunGrup" Type="Self.UrunGrup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="UrunGrup">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personel_Gorev">
+          <End Role="Gorev" Type="Self.Gorev" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gorev">
+              <PropertyRef Name="GorevId" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="Gorev" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Misafir_Ulke">
+          <End Role="Ulke" Type="Self.Ulke" Multiplicity="0..1" />
+          <End Role="Misafir" Type="Self.Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ulke">
+              <PropertyRef Name="UlkeId" />
+            </Principal>
+            <Dependent Role="Misafir">
+              <PropertyRef Name="Ulke" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_UrunGrup">
+          <End Role="UrunGrup" Type="Self.UrunGrup" Multiplicity="0..1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UrunGrup">
+              <PropertyRef Name="UrunGrupId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="UrunGrup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbOtelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Birim" EntityType="Self.Birim" />
+          <EntitySet Name="Departman" EntityType="Self.Departman" />
+          <EntitySet Name="Durum" EntityType="Self.Durum" />
+          <EntitySet Name="Gorev" EntityType="Self.Gorev" />
+          <EntitySet Name="Kasa" EntityType="Self.Kasa" />
+          <EntitySet Name="Kur" EntityType="Self.Kur" />
+          <EntitySet Name="Misafir" EntityType="Self.Misafir" />
+          <EntitySet Name="Oda" EntityType="Self.Oda" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Telefon" EntityType="Self.Telefon" />
+          <EntitySet Name="Ulke" EntityType="Self.Ulke" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" />
+          <EntitySet Name="UrunGrup" EntityType="Self.UrunGrup" />
+          <AssociationSet Name="FK_Birim_Durum" Association="Self.FK_Birim_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Birim" EntitySet="Birim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Birim" Association="Self.FK_Urun_Birim">
+            <End Role="Birim" EntitySet="Birim" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departman_Durum" Association="Self.FK_Departman_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Departman" EntitySet="Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorev_Departman" Association="Self.FK_Gorev_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="Gorev" EntitySet="Gorev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Departman" Association="Self.FK_Personel_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorev_Durum" Association="Self.FK_Gorev_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Gorev" EntitySet="Gorev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kasa_Durum" Association="Self.FK_Kasa_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Kasa" EntitySet="Kasa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kur_Durum" Association="Self.FK_Kur_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Kur" EntitySet="Kur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Misafir_Durum" Association="Self.FK_Misafir_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Misafir" EntitySet="Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oda_Durum" Association="Self.FK_Oda_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Oda" EntitySet="Oda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Durum" Association="Self.FK_Personel_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefon_Durum" Association="Self.FK_Telefon_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Telefon" EntitySet="Telefon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Durum" Association="Self.FK_Urun_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunGrup_Durum" Association="Self.FK_UrunGrup_Durum">
+            <End Role="Durum" EntitySet="Durum" />
+            <End Role="UrunGrup" EntitySet="UrunGrup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personel_Gorev" Association="Self.FK_Personel_Gorev">
+            <End Role="Gorev" EntitySet="Gorev" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Misafir_Ulke" Association="Self.FK_Misafir_Ulke">
+            <End Role="Ulke" EntitySet="Ulke" />
+            <End Role="Misafir" EntitySet="Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_UrunGrup" Association="Self.FK_Urun_UrunGrup">
+            <End Role="UrunGrup" EntitySet="UrunGrup" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbOtelModelStoreContainer" CdmEntityContainer="DbOtelEntities">
+          <EntitySetMapping Name="Birim">
+            <EntityTypeMapping TypeName="DbOtelModel.Birim">
+              <MappingFragment StoreEntitySet="Birim">
+                <ScalarProperty Name="BirimId" ColumnName="BirimId" />
+                <ScalarProperty Name="BirimAd" ColumnName="BirimAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departman">
+            <EntityTypeMapping TypeName="DbOtelModel.Departman">
+              <MappingFragment StoreEntitySet="Departman">
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+                <ScalarProperty Name="DepartmanAd" ColumnName="DepartmanAd" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Durum">
+            <EntityTypeMapping TypeName="DbOtelModel.Durum">
+              <MappingFragment StoreEntitySet="Durum">
+                <ScalarProperty Name="DurumId" ColumnName="DurumId" />
+                <ScalarProperty Name="DurumAd" ColumnName="DurumAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gorev">
+            <EntityTypeMapping TypeName="DbOtelModel.Gorev">
+              <MappingFragment StoreEntitySet="Gorev">
+                <ScalarProperty Name="GorevId" ColumnName="GorevId" />
+                <ScalarProperty Name="GorevAd" ColumnName="GorevAd" />
+                <ScalarProperty Name="Departman" ColumnName="Departman" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kasa">
+            <EntityTypeMapping TypeName="DbOtelModel.Kasa">
+              <MappingFragment StoreEntitySet="Kasa">
+                <ScalarProperty Name="KasaID" ColumnName="KasaID" />
+                <ScalarProperty Name="KasaAd" ColumnName="KasaAd" />
+                <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+                <ScalarProperty Name="Giris" ColumnName="Giris" />
+                <ScalarProperty Name="Cikis" ColumnName="Cikis" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kur">
+            <EntityTypeMapping TypeName="DbOtelModel.Kur">
+              <MappingFragment StoreEntitySet="Kur">
+                <ScalarProperty Name="KurId" ColumnName="KurId" />
+                <ScalarProperty Name="KurAd" ColumnName="KurAd" />
+                <ScalarProperty Name="Sembol" ColumnName="Sembol" />
+                <ScalarProperty Name="Deger" ColumnName="Deger" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Misafir">
+            <EntityTypeMapping TypeName="DbOtelModel.Misafir">
+              <MappingFragment StoreEntitySet="Misafir">
+                <ScalarProperty Name="MisafirId" ColumnName="MisafirId" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Tc" ColumnName="Tc" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="KimlikFoto1" ColumnName="KimlikFoto1" />
+                <ScalarProperty Name="KimlikFoto2" ColumnName="KimlikFoto2" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oda">
+            <EntityTypeMapping TypeName="DbOtelModel.Oda">
+              <MappingFragment StoreEntitySet="Oda">
+                <ScalarProperty Name="OdaId" ColumnName="OdaId" />
+                <ScalarProperty Name="OdaNo" ColumnName="OdaNo" />
+                <ScalarProperty Name="Kat" ColumnName="Kat" />
+                <ScalarProperty Name="Kapasite" ColumnName="Kapasite" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel">
+            <EntityTypeMapping TypeName="DbOtelModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+                <ScalarProperty Name="KimlikArka" ColumnName="KimlikArka" />
+                <ScalarProperty Name="KimlikOn" ColumnName="KimlikOn" />
+                <ScalarProperty Name="PersonelId" ColumnName="PersonelId" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Tc" ColumnName="Tc" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="IseGirisTarihi" ColumnName="IseGirisTarihi" />
+                <ScalarProperty Name="IstenCikisTarihi" ColumnName="IstenCikisTarihi" />
+                <ScalarProperty Name="Departman" ColumnName="Departman" />
+                <ScalarProperty Name="Gorev" ColumnName="Gorev" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbOtelModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefon">
+            <EntityTypeMapping TypeName="DbOtelModel.Telefon">
+              <MappingFragment StoreEntitySet="Telefon">
+                <ScalarProperty Name="TelefonId" ColumnName="TelefonId" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Telefon1" ColumnName="Telefon" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ulke">
+            <EntityTypeMapping TypeName="DbOtelModel.Ulke">
+              <MappingFragment StoreEntitySet="Ulke">
+                <ScalarProperty Name="UlkeId" ColumnName="UlkeId" />
+                <ScalarProperty Name="UlkeAd" ColumnName="UlkeAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun">
+            <EntityTypeMapping TypeName="DbOtelModel.Urun">
+              <MappingFragment StoreEntitySet="Urun">
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunGrup">
+            <EntityTypeMapping TypeName="DbOtelModel.UrunGrup">
+              <MappingFragment StoreEntitySet="UrunGrup">
+                <ScalarProperty Name="UrunGrupId" ColumnName="UrunGrupId" />
+                <ScalarProperty Name="UrunGrupAd" ColumnName="UrunGrupAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1af609c3884e41d4afeb0fd1020cda19" Name="Diagram1">
+        <EntityTypeShape EntityType="DbOtelModel.Birim" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Departman" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Durum" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Gorev" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Kasa" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Kur" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Misafir" Width="1.5" PointX="8" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Oda" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Personel" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Telefon" Width="1.5" PointX="3" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Ulke" Width="1.5" PointX="5.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.Urun" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOtelModel.UrunGrup" Width="1.5" PointX="3" PointY="28" IsExpanded="true" />
+        <AssociationConnector Association="DbOtelModel.FK_Birim_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Urun_Birim" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Departman_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Gorev_Departman" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Personel_Departman" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Gorev_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Kasa_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Kur_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Misafir_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Oda_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Personel_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Telefon_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Urun_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_UrunGrup_Durum" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Personel_Gorev" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Misafir_Ulke" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOtelModel.FK_Urun_UrunGrup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
