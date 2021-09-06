@@ -23,9 +23,16 @@ namespace OtelOtomasyonu.Formlar.Personel_İslemleri
             gridControl1.DataSource  = (from x in db.Tbl_Personel
                          select new
                          {
-                             x.Tc,x.AdSoyad,x.Telefon,x.Mail,x.Tbl_Departman.DepartmanAd,x.Tbl_Gorev.GorevAd
+                            x.PersonelId, x.Tc,x.AdSoyad,x.Telefon,x.Mail,x.Tbl_Departman.DepartmanAd,x.Tbl_Gorev.GorevAd
                          }).ToList();
            
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+           FrmPersonelKarti fr = new FrmPersonelKarti();
+            fr.id =int.Parse(gridView1.GetFocusedRowCellValue("PersonelId").ToString());
+            fr.Show();
         }
     }
 }
