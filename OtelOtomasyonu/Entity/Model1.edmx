@@ -4,7 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbOtelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbOtelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ilceler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ilce" Type="nvarchar" MaxLength="255" />
+          <Property Name="sehir" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sehir" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -82,6 +97,8 @@
           <Property Name="Adres" Type="nvarchar" MaxLength="250" />
           <Property Name="Ulke" Type="int" />
           <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="Sehir" Type="int" />
+          <Property Name="ilce" Type="int" />
           <Property Name="KimlikFoto1" Type="nvarchar" MaxLength="200" />
           <Property Name="KimlikFoto2" Type="nvarchar" MaxLength="200" />
           <Property Name="Durum" Type="int" />
@@ -363,6 +380,8 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DbOtelModelStoreContainer">
+          <EntitySet Name="ilceler" EntityType="Self.ilceler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Birim" EntityType="Self.Tbl_Birim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Departman" EntityType="Self.Tbl_Departman" Schema="dbo" store:Type="Tables" />
@@ -465,8 +484,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             <End Role="Tbl_UrunGrup" EntitySet="Tbl_UrunGrup" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbOtelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -573,6 +591,8 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="Durum" Type="Int32" />
           <NavigationProperty Name="Tbl_Durum" Relationship="Self.FK_Misafir_Durum" FromRole="Tbl_Misafir" ToRole="Tbl_Durum" />
           <NavigationProperty Name="Tbl_Ulke" Relationship="Self.FK_Misafir_Ulke" FromRole="Tbl_Misafir" ToRole="Tbl_Ulke" />
+          <Property Name="Sehir" Type="Int32" />
+          <Property Name="ilce" Type="Int32" />
         </EntityType>
         <EntityType Name="Tbl_Oda">
           <Key>
@@ -942,7 +962,24 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             <End Role="Tbl_UrunGrup" EntitySet="Tbl_UrunGrup" />
             <End Role="Tbl_Urun" EntitySet="Tbl_Urun" />
           </AssociationSet>
+          <EntitySet Name="ilceler" EntityType="DbOtelModel.ilceler" />
+          <EntitySet Name="iller" EntityType="DbOtelModel.iller" />
         </EntityContainer>
+        <EntityType Name="ilceler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ilce" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sehir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1024,6 +1061,8 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <EntitySetMapping Name="Tbl_Misafir">
             <EntityTypeMapping TypeName="DbOtelModel.Tbl_Misafir">
               <MappingFragment StoreEntitySet="Tbl_Misafir">
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
                 <ScalarProperty Name="MisafirId" ColumnName="MisafirId" />
                 <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
                 <ScalarProperty Name="Tc" ColumnName="Tc" />
@@ -1111,6 +1150,23 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
                 <ScalarProperty Name="Sifre" ColumnName="Sifre" />
                 <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
                 <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ilceler">
+            <EntityTypeMapping TypeName="DbOtelModel.ilceler">
+              <MappingFragment StoreEntitySet="ilceler">
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iller">
+            <EntityTypeMapping TypeName="DbOtelModel.iller">
+              <MappingFragment StoreEntitySet="iller">
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -80,5 +80,11 @@ namespace OtelOtomasyonu
             pl.MdiParent = this;
             pl.Show();
         }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.Misafir_İslemleri.MisafirKarti mk = new Formlar.Misafir_İslemleri.MisafirKarti();
+            mk.Show();
+        }
     }
 }

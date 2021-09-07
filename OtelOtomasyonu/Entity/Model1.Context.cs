@@ -39,5 +39,7 @@ namespace OtelOtomasyonu.Entity
         public virtual DbSet<Tbl_Urun> Tbl_Urun { get; set; }
         public virtual DbSet<Tbl_UrunGrup> Tbl_UrunGrup { get; set; }
         public virtual DbSet<Tbl_Personel> Tbl_Personel { get; set; }
+        public virtual DbSet<ilceler> ilceler { get; set; }
+        public virtual DbSet<iller> iller { get; set; }
     }
 }

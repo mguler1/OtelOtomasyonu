@@ -36,6 +36,8 @@
         <AssociationConnector Association="DbOtelModel.FK_Personel_Gorev" ManuallyRouted="false" />
         <AssociationConnector Association="DbOtelModel.FK_Misafir_Ulke" ManuallyRouted="false" />
         <AssociationConnector Association="DbOtelModel.FK_Urun_UrunGrup" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbOtelModel.ilceler" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbOtelModel.iller" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
