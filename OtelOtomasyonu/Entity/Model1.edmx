@@ -97,8 +97,8 @@
           <Property Name="Adres" Type="nvarchar" MaxLength="250" />
           <Property Name="Ulke" Type="int" />
           <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="Ilce" Type="int" />
           <Property Name="Sehir" Type="int" />
-          <Property Name="ilce" Type="int" />
           <Property Name="KimlikFoto1" Type="nvarchar" MaxLength="200" />
           <Property Name="KimlikFoto2" Type="nvarchar" MaxLength="200" />
           <Property Name="Durum" Type="int" />
@@ -223,6 +223,18 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ilceler_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="1" />
+          <End Role="ilceler" Type="Self.ilceler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ilceler">
+              <PropertyRef Name="sehir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Kasa_Durum">
           <End Role="Tbl_Durum" Type="Self.Tbl_Durum" Multiplicity="0..1" />
           <End Role="Tbl_Kasa" Type="Self.Tbl_Kasa" Multiplicity="*" />
@@ -316,6 +328,30 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             </Principal>
             <Dependent Role="Tbl_Personel">
               <PropertyRef Name="Gorev" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Misafir_ilceler">
+          <End Role="ilceler" Type="Self.ilceler" Multiplicity="0..1" />
+          <End Role="Tbl_Misafir" Type="Self.Tbl_Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilceler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Misafir">
+              <PropertyRef Name="Ilce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Misafir_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+          <End Role="Tbl_Misafir" Type="Self.Tbl_Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Misafir">
+              <PropertyRef Name="Sehir" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -431,6 +467,10 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             <End Role="Tbl_Durum" EntitySet="Tbl_Durum" />
             <End Role="Tbl_Gorev" EntitySet="Tbl_Gorev" />
           </AssociationSet>
+          <AssociationSet Name="FK_ilceler_iller" Association="Self.FK_ilceler_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="ilceler" EntitySet="ilceler" />
+          </AssociationSet>
           <AssociationSet Name="FK_Kasa_Durum" Association="Self.FK_Kasa_Durum">
             <End Role="Tbl_Durum" EntitySet="Tbl_Durum" />
             <End Role="Tbl_Kasa" EntitySet="Tbl_Kasa" />
@@ -462,6 +502,14 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <AssociationSet Name="FK_Personel_Gorev" Association="Self.FK_Personel_Gorev">
             <End Role="Tbl_Gorev" EntitySet="Tbl_Gorev" />
             <End Role="Tbl_Personel" EntitySet="Tbl_Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Misafir_ilceler" Association="Self.FK_Tbl_Misafir_ilceler">
+            <End Role="ilceler" EntitySet="ilceler" />
+            <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Misafir_iller" Association="Self.FK_Tbl_Misafir_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
           </AssociationSet>
           <AssociationSet Name="FK_Telefon_Durum" Association="Self.FK_Telefon_Durum">
             <End Role="Tbl_Durum" EntitySet="Tbl_Durum" />
@@ -591,8 +639,10 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="Durum" Type="Int32" />
           <NavigationProperty Name="Tbl_Durum" Relationship="Self.FK_Misafir_Durum" FromRole="Tbl_Misafir" ToRole="Tbl_Durum" />
           <NavigationProperty Name="Tbl_Ulke" Relationship="Self.FK_Misafir_Ulke" FromRole="Tbl_Misafir" ToRole="Tbl_Ulke" />
+          <Property Name="Ilce" Type="Int32" />
           <Property Name="Sehir" Type="Int32" />
-          <Property Name="ilce" Type="Int32" />
+          <NavigationProperty Name="ilceler" Relationship="DbOtelModel.FK_Tbl_Misafir_ilceler" FromRole="Tbl_Misafir" ToRole="ilceler" />
+          <NavigationProperty Name="iller" Relationship="DbOtelModel.FK_Tbl_Misafir_iller" FromRole="Tbl_Misafir" ToRole="iller" />
         </EntityType>
         <EntityType Name="Tbl_Oda">
           <Key>
@@ -964,6 +1014,18 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           </AssociationSet>
           <EntitySet Name="ilceler" EntityType="DbOtelModel.ilceler" />
           <EntitySet Name="iller" EntityType="DbOtelModel.iller" />
+          <AssociationSet Name="FK_ilceler_iller" Association="DbOtelModel.FK_ilceler_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="ilceler" EntitySet="ilceler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Misafir_ilceler" Association="DbOtelModel.FK_Tbl_Misafir_ilceler">
+            <End Role="ilceler" EntitySet="ilceler" />
+            <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Misafir_iller" Association="DbOtelModel.FK_Tbl_Misafir_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ilceler">
           <Key>
@@ -972,6 +1034,8 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="ilce" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="sehir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="iller" Relationship="DbOtelModel.FK_ilceler_iller" FromRole="ilceler" ToRole="iller" />
+          <NavigationProperty Name="Tbl_Misafir" Relationship="DbOtelModel.FK_Tbl_Misafir_ilceler" FromRole="ilceler" ToRole="Tbl_Misafir" />
         </EntityType>
         <EntityType Name="iller">
           <Key>
@@ -979,7 +1043,45 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ilceler" Relationship="DbOtelModel.FK_ilceler_iller" FromRole="iller" ToRole="ilceler" />
+          <NavigationProperty Name="Tbl_Misafir" Relationship="DbOtelModel.FK_Tbl_Misafir_iller" FromRole="iller" ToRole="Tbl_Misafir" />
         </EntityType>
+        <Association Name="FK_ilceler_iller">
+          <End Type="DbOtelModel.iller" Role="iller" Multiplicity="1" />
+          <End Type="DbOtelModel.ilceler" Role="ilceler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ilceler">
+              <PropertyRef Name="sehir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Misafir_ilceler">
+          <End Type="DbOtelModel.ilceler" Role="ilceler" Multiplicity="0..1" />
+          <End Type="DbOtelModel.Tbl_Misafir" Role="Tbl_Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilceler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Misafir">
+              <PropertyRef Name="Ilce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Misafir_iller">
+          <End Type="DbOtelModel.iller" Role="iller" Multiplicity="0..1" />
+          <End Type="DbOtelModel.Tbl_Misafir" Role="Tbl_Misafir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Misafir">
+              <PropertyRef Name="Sehir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1061,8 +1163,8 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <EntitySetMapping Name="Tbl_Misafir">
             <EntityTypeMapping TypeName="DbOtelModel.Tbl_Misafir">
               <MappingFragment StoreEntitySet="Tbl_Misafir">
-                <ScalarProperty Name="ilce" ColumnName="ilce" />
                 <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
                 <ScalarProperty Name="MisafirId" ColumnName="MisafirId" />
                 <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
                 <ScalarProperty Name="Tc" ColumnName="Tc" />

@@ -14,8 +14,18 @@ namespace OtelOtomasyonu.Entity
     
     public partial class ilceler
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ilceler()
+        {
+            this.Tbl_Misafir = new HashSet<Tbl_Misafir>();
+        }
+    
         public int id { get; set; }
         public string ilce { get; set; }
         public int sehir { get; set; }
+    
+        public virtual iller iller { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Misafir> Tbl_Misafir { get; set; }
     }
 }

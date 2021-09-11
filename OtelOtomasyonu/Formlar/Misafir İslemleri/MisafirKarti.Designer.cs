@@ -66,13 +66,13 @@
             this.txtTc = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpEditIlce = new DevExpress.XtraEditors.LookUpEdit();
+            this.pictureEdit6 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.txtAdSoyad = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEditIlce = new DevExpress.XtraEditors.LookUpEdit();
-            this.pictureEdit6 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -105,11 +105,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditIlce.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditIlce.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl8
@@ -340,6 +340,7 @@
             this.BtnGuncelle.Size = new System.Drawing.Size(102, 40);
             this.BtnGuncelle.TabIndex = 2;
             this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // btnKaydet
             // 
@@ -514,6 +515,40 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "groupControl1";
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(266, 70);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(17, 13);
+            this.labelControl6.TabIndex = 17;
+            this.labelControl6.Text = "İlçe";
+            // 
+            // lookUpEditIlce
+            // 
+            this.lookUpEditIlce.Location = new System.Drawing.Point(311, 67);
+            this.lookUpEditIlce.Name = "lookUpEditIlce";
+            this.lookUpEditIlce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditIlce.Properties.DisplayMember = "ilce";
+            this.lookUpEditIlce.Properties.NullText = "İlçe Seçiniz";
+            this.lookUpEditIlce.Properties.ValueMember = "id";
+            this.lookUpEditIlce.Size = new System.Drawing.Size(157, 20);
+            this.lookUpEditIlce.TabIndex = 15;
+            // 
+            // pictureEdit6
+            // 
+            this.pictureEdit6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureEdit6.EditValue = ((object)(resources.GetObject("pictureEdit6.EditValue")));
+            this.pictureEdit6.Location = new System.Drawing.Point(238, 65);
+            this.pictureEdit6.Name = "pictureEdit6";
+            this.pictureEdit6.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit6.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit6.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit6.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit6.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit6.Size = new System.Drawing.Size(20, 20);
+            this.pictureEdit6.TabIndex = 16;
+            // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(33, 41);
@@ -556,40 +591,6 @@
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.Size = new System.Drawing.Size(397, 20);
             this.txtAdSoyad.TabIndex = 1;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(266, 70);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(17, 13);
-            this.labelControl6.TabIndex = 17;
-            this.labelControl6.Text = "İlçe";
-            // 
-            // lookUpEditIlce
-            // 
-            this.lookUpEditIlce.Location = new System.Drawing.Point(311, 67);
-            this.lookUpEditIlce.Name = "lookUpEditIlce";
-            this.lookUpEditIlce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditIlce.Properties.DisplayMember = "ilce";
-            this.lookUpEditIlce.Properties.NullText = "İlçe Seçiniz";
-            this.lookUpEditIlce.Properties.ValueMember = "id";
-            this.lookUpEditIlce.Size = new System.Drawing.Size(157, 20);
-            this.lookUpEditIlce.TabIndex = 15;
-            // 
-            // pictureEdit6
-            // 
-            this.pictureEdit6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit6.EditValue = ((object)(resources.GetObject("pictureEdit6.EditValue")));
-            this.pictureEdit6.Location = new System.Drawing.Point(238, 65);
-            this.pictureEdit6.Name = "pictureEdit6";
-            this.pictureEdit6.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit6.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit6.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit6.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit6.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit6.Size = new System.Drawing.Size(20, 20);
-            this.pictureEdit6.TabIndex = 16;
             // 
             // MisafirKarti
             // 
@@ -639,11 +640,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditIlce.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditIlce.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

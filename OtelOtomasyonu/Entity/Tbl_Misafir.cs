@@ -25,10 +25,12 @@ namespace OtelOtomasyonu.Entity
         public string KimlikFoto1 { get; set; }
         public string KimlikFoto2 { get; set; }
         public Nullable<int> Durum { get; set; }
+        public Nullable<int> Ilce { get; set; }
         public Nullable<int> Sehir { get; set; }
-        public Nullable<int> ilce { get; set; }
     
         public virtual Tbl_Durum Tbl_Durum { get; set; }
         public virtual Tbl_Ulke Tbl_Ulke { get; set; }
+        public virtual ilceler ilceler { get; set; }
+        public virtual iller iller { get; set; }
     }
 }
