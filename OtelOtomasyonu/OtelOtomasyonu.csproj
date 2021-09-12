@@ -207,6 +207,18 @@
     <Compile Include="Formlar\Tanımlar\FrmUrunGrup.Designer.cs">
       <DependentUpon>FrmUrunGrup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunCikis.Designer.cs">
+      <DependentUpon>FrmUrunCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunGiris.Designer.cs">
+      <DependentUpon>FrmUrunGiris.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formlar\UrunIslemleri\FrmUrunKarti.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formlar\Tanımlar\FrmUrunGrup.resx">
       <DependentUpon>FrmUrunGrup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\UrunIslemleri\FrmUrunCikis.resx">
+      <DependentUpon>FrmUrunCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\UrunIslemleri\FrmUrunGiris.resx">
+      <DependentUpon>FrmUrunGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formlar\UrunIslemleri\FrmUrunKarti.resx">
       <DependentUpon>FrmUrunKarti.cs</DependentUpon>
