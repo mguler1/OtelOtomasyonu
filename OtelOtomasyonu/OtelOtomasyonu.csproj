@@ -126,6 +126,9 @@
     <Compile Include="Entity\Tbl_UrunGrup.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Tbl_UrunHareket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +207,18 @@
     <Compile Include="Formlar\Tanımlar\FrmUrunGrup.Designer.cs">
       <DependentUpon>FrmUrunGrup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunKarti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunKarti.Designer.cs">
+      <DependentUpon>FrmUrunKarti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\UrunIslemleri\FrmUrunListesi.Designer.cs">
+      <DependentUpon>FrmUrunListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -245,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formlar\Tanımlar\FrmUrunGrup.resx">
       <DependentUpon>FrmUrunGrup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\UrunIslemleri\FrmUrunKarti.resx">
+      <DependentUpon>FrmUrunKarti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\UrunIslemleri\FrmUrunListesi.resx">
+      <DependentUpon>FrmUrunListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

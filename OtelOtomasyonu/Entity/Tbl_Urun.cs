@@ -14,6 +14,12 @@ namespace OtelOtomasyonu.Entity
     
     public partial class Tbl_Urun
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Urun()
+        {
+            this.Tbl_UrunHareket = new HashSet<Tbl_UrunHareket>();
+        }
+    
         public int UrunId { get; set; }
         public string UrunAd { get; set; }
         public Nullable<int> UrunGrup { get; set; }
@@ -26,5 +32,7 @@ namespace OtelOtomasyonu.Entity
         public virtual Tbl_Birim Tbl_Birim { get; set; }
         public virtual Tbl_Durum Tbl_Durum { get; set; }
         public virtual Tbl_UrunGrup Tbl_UrunGrup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_UrunHareket> Tbl_UrunHareket { get; set; }
     }
 }

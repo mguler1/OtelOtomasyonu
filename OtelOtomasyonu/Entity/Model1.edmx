@@ -175,6 +175,17 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="UrunGrupAd" Type="nvarchar" MaxLength="50" />
           <Property Name="Durum" Type="int" />
         </EntityType>
+        <EntityType Name="Tbl_UrunHareket">
+          <Key>
+            <PropertyRef Name="HareketId" />
+          </Key>
+          <Property Name="HareketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Urun" Type="int" />
+          <Property Name="HareketTuru" Type="nvarchar" MaxLength="5" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tarih" Type="date" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
         <Association Name="FK_Birim_Durum">
           <End Role="Tbl_Durum" Type="Self.Tbl_Durum" Multiplicity="0..1" />
           <End Role="Tbl_Birim" Type="Self.Tbl_Birim" Multiplicity="*" />
@@ -355,6 +366,18 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tbl_UrunHareket_Tbl_Urun">
+          <End Role="Tbl_Urun" Type="Self.Tbl_Urun" Multiplicity="0..1" />
+          <End Role="Tbl_UrunHareket" Type="Self.Tbl_UrunHareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="Tbl_UrunHareket">
+              <PropertyRef Name="Urun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Telefon_Durum">
           <End Role="Tbl_Durum" Type="Self.Tbl_Durum" Multiplicity="0..1" />
           <End Role="Tbl_Telefon" Type="Self.Tbl_Telefon" Multiplicity="*" />
@@ -431,6 +454,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <EntitySet Name="Tbl_Ulke" EntityType="Self.Tbl_Ulke" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Urun" EntityType="Self.Tbl_Urun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_UrunGrup" EntityType="Self.Tbl_UrunGrup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_UrunHareket" EntityType="Self.Tbl_UrunHareket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Personel" EntityType="Self.Tbl_Personel" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Tbl_Personel].[PersonelId] AS [PersonelId], 
@@ -510,6 +534,10 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <AssociationSet Name="FK_Tbl_Misafir_iller" Association="Self.FK_Tbl_Misafir_iller">
             <End Role="iller" EntitySet="iller" />
             <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_UrunHareket_Tbl_Urun" Association="Self.FK_Tbl_UrunHareket_Tbl_Urun">
+            <End Role="Tbl_Urun" EntitySet="Tbl_Urun" />
+            <End Role="Tbl_UrunHareket" EntitySet="Tbl_UrunHareket" />
           </AssociationSet>
           <AssociationSet Name="FK_Telefon_Durum" Association="Self.FK_Telefon_Durum">
             <End Role="Tbl_Durum" EntitySet="Tbl_Durum" />
@@ -690,6 +718,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <NavigationProperty Name="Tbl_Birim" Relationship="Self.FK_Urun_Birim" FromRole="Tbl_Urun" ToRole="Tbl_Birim" />
           <NavigationProperty Name="Tbl_Durum" Relationship="Self.FK_Urun_Durum" FromRole="Tbl_Urun" ToRole="Tbl_Durum" />
           <NavigationProperty Name="Tbl_UrunGrup" Relationship="Self.FK_Urun_UrunGrup" FromRole="Tbl_Urun" ToRole="Tbl_UrunGrup" />
+          <NavigationProperty Name="Tbl_UrunHareket" Relationship="DbOtelModel.FK_Tbl_UrunHareket_Tbl_Urun" FromRole="Tbl_Urun" ToRole="Tbl_UrunHareket" />
         </EntityType>
         <EntityType Name="Tbl_UrunGrup">
           <Key>
@@ -1026,6 +1055,11 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             <End Role="iller" EntitySet="iller" />
             <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
           </AssociationSet>
+          <EntitySet Name="Tbl_UrunHareket" EntityType="DbOtelModel.Tbl_UrunHareket" />
+          <AssociationSet Name="FK_Tbl_UrunHareket_Tbl_Urun" Association="DbOtelModel.FK_Tbl_UrunHareket_Tbl_Urun">
+            <End Role="Tbl_Urun" EntitySet="Tbl_Urun" />
+            <End Role="Tbl_UrunHareket" EntitySet="Tbl_UrunHareket" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ilceler">
           <Key>
@@ -1079,6 +1113,30 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             </Principal>
             <Dependent Role="Tbl_Misafir">
               <PropertyRef Name="Sehir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_UrunHareket">
+          <Key>
+            <PropertyRef Name="HareketId" />
+          </Key>
+          <Property Name="HareketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Urun" Type="Int32" />
+          <Property Name="HareketTuru" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="Aciklama" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Urun" Relationship="DbOtelModel.FK_Tbl_UrunHareket_Tbl_Urun" FromRole="Tbl_UrunHareket" ToRole="Tbl_Urun" />
+        </EntityType>
+        <Association Name="FK_Tbl_UrunHareket_Tbl_Urun">
+          <End Type="DbOtelModel.Tbl_Urun" Role="Tbl_Urun" Multiplicity="0..1" />
+          <End Type="DbOtelModel.Tbl_UrunHareket" Role="Tbl_UrunHareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="Tbl_UrunHareket">
+              <PropertyRef Name="Urun" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1269,6 +1327,18 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
               <MappingFragment StoreEntitySet="iller">
                 <ScalarProperty Name="sehir" ColumnName="sehir" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_UrunHareket">
+            <EntityTypeMapping TypeName="DbOtelModel.Tbl_UrunHareket">
+              <MappingFragment StoreEntitySet="Tbl_UrunHareket">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="HareketTuru" ColumnName="HareketTuru" />
+                <ScalarProperty Name="Urun" ColumnName="Urun" />
+                <ScalarProperty Name="HareketId" ColumnName="HareketId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
