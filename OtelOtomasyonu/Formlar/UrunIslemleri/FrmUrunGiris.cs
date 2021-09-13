@@ -28,5 +28,12 @@ namespace OtelOtomasyonu.Formlar.UrunIslemleri
             x.HareketTuru
             }).Where(y=>y.HareketTuru=="Giriş").ToList();
         }
+
+        private void gridControl1_DoubleClick(object sender, EventArgs e)
+        {
+            FrmUrunHareketTanimi fr = new FrmUrunHareketTanimi();
+            fr.id = int.Parse(gridView1.GetFocusedRowCellValue("HareketId").ToString());
+            fr.Show();
+        }
     }
 }

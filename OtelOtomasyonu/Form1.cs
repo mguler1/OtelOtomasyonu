@@ -117,5 +117,11 @@ namespace OtelOtomasyonu
             Formlar.UrunIslemleri.FrmUrunCikis ug = new Formlar.UrunIslemleri.FrmUrunCikis();
             ug.Show();
         }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.UrunIslemleri.FrmUrunHareketTanimi uh = new Formlar.UrunIslemleri.FrmUrunHareketTanimi();
+            uh.Show();
+        }
     }
 }
