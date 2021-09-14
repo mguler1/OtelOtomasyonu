@@ -123,5 +123,11 @@ namespace OtelOtomasyonu
             Formlar.UrunIslemleri.FrmUrunHareketTanimi uh = new Formlar.UrunIslemleri.FrmUrunHareketTanimi();
             uh.Show();
         }
+
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.RezervasyonIslemleri.FrmRezervasyonKarti uh = new Formlar.RezervasyonIslemleri.FrmRezervasyonKarti();
+            uh.Show();
+        }
     }
 }

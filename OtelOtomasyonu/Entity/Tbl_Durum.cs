@@ -28,6 +28,7 @@ namespace OtelOtomasyonu.Entity
             this.Tbl_Telefon = new HashSet<Tbl_Telefon>();
             this.Tbl_Urun = new HashSet<Tbl_Urun>();
             this.Tbl_UrunGrup = new HashSet<Tbl_UrunGrup>();
+            this.Tbl_Rezervasyon = new HashSet<Tbl_Rezervasyon>();
         }
     
         public int DurumId { get; set; }
@@ -55,5 +56,7 @@ namespace OtelOtomasyonu.Entity
         public virtual ICollection<Tbl_Urun> Tbl_Urun { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_UrunGrup> Tbl_UrunGrup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Rezervasyon> Tbl_Rezervasyon { get; set; }
     }
 }

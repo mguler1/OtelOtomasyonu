@@ -114,6 +114,9 @@
     <Compile Include="Entity\Tbl_Personel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Tbl_Rezervasyon.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Tbl_Telefon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -158,6 +161,12 @@
     </Compile>
     <Compile Include="Formlar\Personel İslemleri\PersonelListesi.Designer.cs">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmRezervasyonKarti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmRezervasyonKarti.Designer.cs">
+      <DependentUpon>FrmRezervasyonKarti.cs</DependentUpon>
     </Compile>
     <Compile Include="Formlar\Tanımlar\FrmBirim.cs">
       <SubType>Form</SubType>
@@ -254,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formlar\Personel İslemleri\PersonelListesi.resx">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmRezervasyonKarti.resx">
+      <DependentUpon>FrmRezervasyonKarti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formlar\Tanımlar\FrmBirim.resx">
       <DependentUpon>FrmBirim.cs</DependentUpon>

@@ -138,6 +138,21 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
           <Property Name="Durum" Type="int" />
         </EntityType>
+        <EntityType Name="Tbl_Rezervasyon">
+          <Key>
+            <PropertyRef Name="RezervasyonId" />
+          </Key>
+          <Property Name="RezervasyonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Misafir" Type="int" />
+          <Property Name="GirisTarihi" Type="date" />
+          <Property Name="CikisTarihi" Type="date" />
+          <Property Name="KisiSayisi" Type="nvarchar" MaxLength="5" />
+          <Property Name="Oda" Type="int" />
+          <Property Name="RezervasyonAdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="11" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="100" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
         <EntityType Name="Tbl_Telefon">
           <Key>
             <PropertyRef Name="TelefonId" />
@@ -366,6 +381,42 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tbl_Rezervasyon_Tbl_Durum">
+          <End Role="Tbl_Durum" Type="Self.Tbl_Durum" Multiplicity="0..1" />
+          <End Role="Tbl_Rezervasyon" Type="Self.Tbl_Rezervasyon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Tbl_Rezervasyon">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Rezervasyon_Tbl_Misafir">
+          <End Role="Tbl_Misafir" Type="Self.Tbl_Misafir" Multiplicity="0..1" />
+          <End Role="Tbl_Rezervasyon" Type="Self.Tbl_Rezervasyon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Misafir">
+              <PropertyRef Name="MisafirId" />
+            </Principal>
+            <Dependent Role="Tbl_Rezervasyon">
+              <PropertyRef Name="Misafir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Rezervasyon_Tbl_Oda">
+          <End Role="Tbl_Oda" Type="Self.Tbl_Oda" Multiplicity="0..1" />
+          <End Role="Tbl_Rezervasyon" Type="Self.Tbl_Rezervasyon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oda">
+              <PropertyRef Name="OdaId" />
+            </Principal>
+            <Dependent Role="Tbl_Rezervasyon">
+              <PropertyRef Name="Oda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tbl_UrunHareket_Tbl_Urun">
           <End Role="Tbl_Urun" Type="Self.Tbl_Urun" Multiplicity="0..1" />
           <End Role="Tbl_UrunHareket" Type="Self.Tbl_UrunHareket" Multiplicity="*" />
@@ -450,6 +501,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <EntitySet Name="Tbl_Kur" EntityType="Self.Tbl_Kur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Misafir" EntityType="Self.Tbl_Misafir" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Oda" EntityType="Self.Tbl_Oda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Rezervasyon" EntityType="Self.Tbl_Rezervasyon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Telefon" EntityType="Self.Tbl_Telefon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Ulke" EntityType="Self.Tbl_Ulke" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Urun" EntityType="Self.Tbl_Urun" Schema="dbo" store:Type="Tables" />
@@ -535,6 +587,18 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             <End Role="iller" EntitySet="iller" />
             <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Rezervasyon_Tbl_Durum" Association="Self.FK_Tbl_Rezervasyon_Tbl_Durum">
+            <End Role="Tbl_Durum" EntitySet="Tbl_Durum" />
+            <End Role="Tbl_Rezervasyon" EntitySet="Tbl_Rezervasyon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Rezervasyon_Tbl_Misafir" Association="Self.FK_Tbl_Rezervasyon_Tbl_Misafir">
+            <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
+            <End Role="Tbl_Rezervasyon" EntitySet="Tbl_Rezervasyon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Rezervasyon_Tbl_Oda" Association="Self.FK_Tbl_Rezervasyon_Tbl_Oda">
+            <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
+            <End Role="Tbl_Rezervasyon" EntitySet="Tbl_Rezervasyon" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tbl_UrunHareket_Tbl_Urun" Association="Self.FK_Tbl_UrunHareket_Tbl_Urun">
             <End Role="Tbl_Urun" EntitySet="Tbl_Urun" />
             <End Role="Tbl_UrunHareket" EntitySet="Tbl_UrunHareket" />
@@ -613,6 +677,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <NavigationProperty Name="Tbl_Telefon" Relationship="Self.FK_Telefon_Durum" FromRole="Tbl_Durum" ToRole="Tbl_Telefon" />
           <NavigationProperty Name="Tbl_Urun" Relationship="Self.FK_Urun_Durum" FromRole="Tbl_Durum" ToRole="Tbl_Urun" />
           <NavigationProperty Name="Tbl_UrunGrup" Relationship="Self.FK_UrunGrup_Durum" FromRole="Tbl_Durum" ToRole="Tbl_UrunGrup" />
+          <NavigationProperty Name="Tbl_Rezervasyon" Relationship="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Durum" FromRole="Tbl_Durum" ToRole="Tbl_Rezervasyon" />
         </EntityType>
         <EntityType Name="Tbl_Gorev">
           <Key>
@@ -671,6 +736,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="Sehir" Type="Int32" />
           <NavigationProperty Name="ilceler" Relationship="DbOtelModel.FK_Tbl_Misafir_ilceler" FromRole="Tbl_Misafir" ToRole="ilceler" />
           <NavigationProperty Name="iller" Relationship="DbOtelModel.FK_Tbl_Misafir_iller" FromRole="Tbl_Misafir" ToRole="iller" />
+          <NavigationProperty Name="Tbl_Rezervasyon" Relationship="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Misafir" FromRole="Tbl_Misafir" ToRole="Tbl_Rezervasyon" />
         </EntityType>
         <EntityType Name="Tbl_Oda">
           <Key>
@@ -684,6 +750,7 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
           <Property Name="Telefon" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="Durum" Type="Int32" />
           <NavigationProperty Name="Tbl_Durum" Relationship="Self.FK_Oda_Durum" FromRole="Tbl_Oda" ToRole="Tbl_Durum" />
+          <NavigationProperty Name="Tbl_Rezervasyon" Relationship="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Oda" FromRole="Tbl_Oda" ToRole="Tbl_Rezervasyon" />
         </EntityType>
         <EntityType Name="Tbl_Telefon">
           <Key>
@@ -1060,6 +1127,19 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             <End Role="Tbl_Urun" EntitySet="Tbl_Urun" />
             <End Role="Tbl_UrunHareket" EntitySet="Tbl_UrunHareket" />
           </AssociationSet>
+          <EntitySet Name="Tbl_Rezervasyon" EntityType="DbOtelModel.Tbl_Rezervasyon" />
+          <AssociationSet Name="FK_Tbl_Rezervasyon_Tbl_Durum" Association="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Durum">
+            <End Role="Tbl_Durum" EntitySet="Tbl_Durum" />
+            <End Role="Tbl_Rezervasyon" EntitySet="Tbl_Rezervasyon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Rezervasyon_Tbl_Misafir" Association="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Misafir">
+            <End Role="Tbl_Misafir" EntitySet="Tbl_Misafir" />
+            <End Role="Tbl_Rezervasyon" EntitySet="Tbl_Rezervasyon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Rezervasyon_Tbl_Oda" Association="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Oda">
+            <End Role="Tbl_Oda" EntitySet="Tbl_Oda" />
+            <End Role="Tbl_Rezervasyon" EntitySet="Tbl_Rezervasyon" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ilceler">
           <Key>
@@ -1137,6 +1217,60 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
             </Principal>
             <Dependent Role="Tbl_UrunHareket">
               <PropertyRef Name="Urun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_Rezervasyon">
+          <Key>
+            <PropertyRef Name="RezervasyonId" />
+          </Key>
+          <Property Name="RezervasyonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Misafir" Type="Int32" />
+          <Property Name="GirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="CikisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="KisiSayisi" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Oda" Type="Int32" />
+          <Property Name="RezervasyonAdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Int32" />
+          <NavigationProperty Name="Tbl_Durum" Relationship="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Durum" FromRole="Tbl_Rezervasyon" ToRole="Tbl_Durum" />
+          <NavigationProperty Name="Tbl_Misafir" Relationship="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Misafir" FromRole="Tbl_Rezervasyon" ToRole="Tbl_Misafir" />
+          <NavigationProperty Name="Tbl_Oda" Relationship="DbOtelModel.FK_Tbl_Rezervasyon_Tbl_Oda" FromRole="Tbl_Rezervasyon" ToRole="Tbl_Oda" />
+        </EntityType>
+        <Association Name="FK_Tbl_Rezervasyon_Tbl_Durum">
+          <End Type="DbOtelModel.Tbl_Durum" Role="Tbl_Durum" Multiplicity="0..1" />
+          <End Type="DbOtelModel.Tbl_Rezervasyon" Role="Tbl_Rezervasyon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Durum">
+              <PropertyRef Name="DurumId" />
+            </Principal>
+            <Dependent Role="Tbl_Rezervasyon">
+              <PropertyRef Name="Durum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Rezervasyon_Tbl_Misafir">
+          <End Type="DbOtelModel.Tbl_Misafir" Role="Tbl_Misafir" Multiplicity="0..1" />
+          <End Type="DbOtelModel.Tbl_Rezervasyon" Role="Tbl_Rezervasyon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Misafir">
+              <PropertyRef Name="MisafirId" />
+            </Principal>
+            <Dependent Role="Tbl_Rezervasyon">
+              <PropertyRef Name="Misafir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Rezervasyon_Tbl_Oda">
+          <End Type="DbOtelModel.Tbl_Oda" Role="Tbl_Oda" Multiplicity="0..1" />
+          <End Type="DbOtelModel.Tbl_Rezervasyon" Role="Tbl_Rezervasyon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Oda">
+              <PropertyRef Name="OdaId" />
+            </Principal>
+            <Dependent Role="Tbl_Rezervasyon">
+              <PropertyRef Name="Oda" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1339,6 +1473,22 @@ warning 6002: The table/view 'DbOtel.dbo.Tbl_Personel' does not have a primary k
                 <ScalarProperty Name="HareketTuru" ColumnName="HareketTuru" />
                 <ScalarProperty Name="Urun" ColumnName="Urun" />
                 <ScalarProperty Name="HareketId" ColumnName="HareketId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Rezervasyon">
+            <EntityTypeMapping TypeName="DbOtelModel.Tbl_Rezervasyon">
+              <MappingFragment StoreEntitySet="Tbl_Rezervasyon">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="RezervasyonAdSoyad" ColumnName="RezervasyonAdSoyad" />
+                <ScalarProperty Name="Oda" ColumnName="Oda" />
+                <ScalarProperty Name="KisiSayisi" ColumnName="KisiSayisi" />
+                <ScalarProperty Name="CikisTarihi" ColumnName="CikisTarihi" />
+                <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+                <ScalarProperty Name="Misafir" ColumnName="Misafir" />
+                <ScalarProperty Name="RezervasyonId" ColumnName="RezervasyonId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
