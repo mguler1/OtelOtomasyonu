@@ -162,11 +162,41 @@
     <Compile Include="Formlar\Personel İslemleri\PersonelListesi.Designer.cs">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmAktifRezervasyonlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmAktifRezervasyonlar.Designer.cs">
+      <DependentUpon>FrmAktifRezervasyonlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmGecmisRezervasyonlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmGecmisRezervasyonlar.Designer.cs">
+      <DependentUpon>FrmGecmisRezervasyonlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmGelecekRezervasyonlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmGelecekRezervasyonlar.Designer.cs">
+      <DependentUpon>FrmGelecekRezervasyonlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmIptalEdilenRezervasyonlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmIptalEdilenRezervasyonlar.Designer.cs">
+      <DependentUpon>FrmIptalEdilenRezervasyonlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formlar\RezervasyonIslemleri\FrmRezervasyonKarti.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formlar\RezervasyonIslemleri\FrmRezervasyonKarti.Designer.cs">
       <DependentUpon>FrmRezervasyonKarti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmTumRezervasyonlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\RezervasyonIslemleri\FrmTumRezervasyonlar.Designer.cs">
+      <DependentUpon>FrmTumRezervasyonlar.cs</DependentUpon>
     </Compile>
     <Compile Include="Formlar\Tanımlar\FrmBirim.cs">
       <SubType>Form</SubType>
@@ -264,8 +294,23 @@
     <EmbeddedResource Include="Formlar\Personel İslemleri\PersonelListesi.resx">
       <DependentUpon>PersonelListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmAktifRezervasyonlar.resx">
+      <DependentUpon>FrmAktifRezervasyonlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmGecmisRezervasyonlar.resx">
+      <DependentUpon>FrmGecmisRezervasyonlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmGelecekRezervasyonlar.resx">
+      <DependentUpon>FrmGelecekRezervasyonlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmIptalEdilenRezervasyonlar.resx">
+      <DependentUpon>FrmIptalEdilenRezervasyonlar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmRezervasyonKarti.resx">
       <DependentUpon>FrmRezervasyonKarti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\RezervasyonIslemleri\FrmTumRezervasyonlar.resx">
+      <DependentUpon>FrmTumRezervasyonlar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formlar\Tanımlar\FrmBirim.resx">
       <DependentUpon>FrmBirim.cs</DependentUpon>

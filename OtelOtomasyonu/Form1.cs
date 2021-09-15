@@ -129,5 +129,36 @@ namespace OtelOtomasyonu
             Formlar.RezervasyonIslemleri.FrmRezervasyonKarti uh = new Formlar.RezervasyonIslemleri.FrmRezervasyonKarti();
             uh.Show();
         }
+
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.RezervasyonIslemleri.FrmTumRezervasyonlar tr = new Formlar.RezervasyonIslemleri.FrmTumRezervasyonlar();
+            tr.MdiParent = this;
+            tr.Show();
+        }
+
+        private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.RezervasyonIslemleri.FrmAktifRezervasyonlar ar = new Formlar.RezervasyonIslemleri.FrmAktifRezervasyonlar();
+            ar.Show();
+        }
+
+        private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.RezervasyonIslemleri.FrmIptalEdilenRezervasyonlar ir = new Formlar.RezervasyonIslemleri.FrmIptalEdilenRezervasyonlar();
+            ir.Show();
+        }
+
+        private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.RezervasyonIslemleri.FrmGecmisRezervasyonlar gr = new Formlar.RezervasyonIslemleri.FrmGecmisRezervasyonlar();
+            gr.Show();
+        }
+
+        private void barButtonItem15_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Formlar.RezervasyonIslemleri.FrmGelecekRezervasyonlar uh = new Formlar.RezervasyonIslemleri.FrmGelecekRezervasyonlar();
+            uh.Show();
+        }
     }
 }
